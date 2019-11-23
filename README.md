@@ -130,7 +130,7 @@ For each algorithm, we have three files:
 
 # External software
 AYRNA TSSA makes use of the following external software implementations:
-- [kmeans](source_code/kmeans): K-means algorithm which we have been modified to be available with our TSS algorithms. Please see the [license](source_code/kmeans/license.txt) file. 
+- [kmeans](source_code/kmeans): K-means algorithm that we have modified to be available with our TSS algorithms. Please see the [license](source_code/kmeans/license.txt) file. 
 - [export_fig](reporter/external_tools/export_fig): Implementation to generate pdf outputs of graphics. Please see the [license](reporter/external_tools/export_fig/license.txt) file.
 - [plot2svg](reporter/external_tools/plot2svg): Implementation to generate svg outputs of graphics. Please see the [license](reporter/external_tools/plot2svg/license.txt) file.
 - [pdist2](source_code/pdist2.m): It calculates the distance between a set of vectors. Please see the copyright available in the header of the [file](source_code/pdist2.m).
