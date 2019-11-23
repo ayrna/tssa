@@ -5,11 +5,13 @@
 - [Cite AYRNA TSSA](#cite-ayrna-tssa)
 - [Structure and algorithms included](#structure-and-algorithms-included)
   - [Algorithms](#algorithms)
-  - [Algorithms eval fast](#algorithms-eval-fast)
+  - [Algorithms eval fast](#algorithms-evals-fast)
   - [Reporter](#reporter)
   - [Source code](#source-code)
   - [Time series](#time-series)
 - [Brief explanation of how to use](#brief-explanation-of-how-to-use)
+  - [Usage](#usage)
+  - [Analysis of the results](#analysis-of-the-results)
 - [External software](#external-software)
 - [References](#references)
 
@@ -23,7 +25,7 @@ There exist two main objectives which time series segmentation tries to satisfy.
 ## Copyright
 This software is released under the The GNU General Public License v3.0 licence available at [http://www.gnu.org/licenses/gpl-3.0.html](http://www.gnu.org/licenses/gpl-3.0.html).
 
-Please see the license [file](LICENSE) available in the repository and the header of the document for the copyright. 
+Please see the license [file](LICENSE) available in the repository and the headers of the documents for the copyright. 
 
 # Cite AYRNA TSSA
 If you use AYRNA TSSA files or algorithms please cite the works which are indicated in the header of each file. For example, if you use GMOTSS algorithm (see section [Structure and algorithms included](#structure-and-algorithms-included)), the header is:
@@ -78,12 +80,12 @@ The [algorithms](algorithms) folder includes the MATLAB algorithms (and their hy
  - [ASCROTSS](algorithms/ASCROTSS): Statistically-driven Coral reefs optimisation algorithm for the reduction of the number of points of time series [1].
  - [ATSS](algorithms/ATSS): Genetic algorithm for the reduction of the number of points of time series [1].
  - [BBePSOTSS](algorithms/BBePSOTSS): Exploitation barebones Particle Swarm Optimisation algorithm for the reduction of the number of points of time series [2].
- - [BBHTSS](algorithms/BBHTSS): Hybrid algorithm using a likelihood-based segmentation assuming a beta distribution for detecting similarities between segments [3].
+ - [BHTSS](algorithms/BHTSS): Hybrid algorithm using a likelihood-based segmentation assuming a beta distribution for detecting similarities between segments [3].
  - [CROTSS](algorithms/CROTSS): Coral reefs optimisation algorithm for detecting similarities between segments [4].
  - [DBBePSOTSS](algorithms/DBBePSOTSS): Dynamic Exploitation barebones Particle Swarm Optimisation algorithm for the reduction of the number of points of time series [2].
  - [EvolTSS](algorithms/EvolTSS): Genetic algorithm for detecting similarities between segments [5].
  - [GMOTSS](algorithms/GMOTSS): Multiobjective evolutionary algorithm for the reduction of the number of points and for detecting similarities between segments in the same algorithm [6].
- - [NHTSS] (algorithms/NHTSS): Hybrid algorithm using a likelihood-based segmentation assuming a normal distribution for detecting similarities between segments [7].
+ - [NHTSS](algorithms/NHTSS): Hybrid algorithm using a likelihood-based segmentation assuming a normal distribution for detecting similarities between segments [7].
  - [PSOTSS](algorithms/PSOTSS): Exploitation barebones Particle Swarm Optimisation algorithm for the reduction of the number of points of time series [2].
  - [TRADTSS](algorithms/TRADTSS): Traditional algorithms for the reduction of the number of points of time series extracted from [8].
 
@@ -91,7 +93,7 @@ The [algorithms](algorithms) folder includes the MATLAB algorithms (and their hy
 The [algorithms_evals_fast](algorithms_evals_fast) folder includes a reimplemented version of some previous algorithms. The algorithms use the number of evaluations as a stop criterion and a new function to evaluate the solution, which significantly decreases the computational time. Also, this folder includes two new algorithms and their hybrid versions:
 
  - [AMCROTSS](algorithms_evals_fast/AMCROTSS): Memetic Coral reefs optimisation algorithm for the reduction of the number of points of time series [9].
- - [WBBePSOTSS](algorithms/WBBePSOTSS): Weighted Exploitation barebones Particle Swarm Optimisation algorithm for the reduction of the number of points of time series [10].
+ - [WBBePSOTSS](algorithms_evals_fast/WBBePSOTSS): Weighted Exploitation barebones Particle Swarm Optimisation algorithm for the reduction of the number of points of time series [10].
  
 ## Reporter
 The [reporter](reporter) folder includes the functions to generate the final reports at the end of the execution of the algorithms. It also consists of two externals tools with their corresponding license of use (see section [External software](#external-software)).
@@ -101,14 +103,14 @@ The [source_code](source_code) folder saves all the functions needed to execute 
 
 ## Time series
 In the [time_series](time_series) folder you must include your own time series databases. We provided two examples of time series, which are:
-- [Mallat](time_series/MALLAT_.txt):is extracted from [The UCR Time Series Classification Archive](www.cs.ucr.edu/eamonn/time series data/).
-- [Donoho-Johnstone](time_series/Donoho-Johnstone.txt): is extracted from a [benchmark repository](https://sites.google.com/site/ icdmmdl/).
+- [Mallat](time_series/MALLAT_.txt): is extracted from [The UCR Time Series Classification Archive](https://www.cs.ucr.edu/~eamonn/time_series_data/).
+- [Donoho-Johnstone](time_series/Donoho-Johnstone.txt): is extracted from a [benchmark repository](https://sites.google.com/site/icdmmdl/).
 
 
 # Brief explanation of how to use
 For each algorithm, we have three files:
 - "Algorithm.m": this file defines the algorithm.
-- "masterSaveAll.m": this file includes a function which saves a summary of a set of runs given the stochastic nature of the algorithm implemented in AYRNA TSS.
+- "masterSaveAll.m": this file includes a function which saves a summary of a set of runs given the stochastic nature of the algorithms implemented in AYRNA TSS.
 - "masterExperimenter.m": this script runs the algorithm given the setting of parameters.
 
 ## Usage
@@ -120,7 +122,7 @@ For each algorithm, we have three files:
 
 ## Analysis of the results
 1. Once you execute masterExperimenter.m script, a folder (called *time_folder* in the following steps) with the current date and hour is created in the report/ folder.
-2. For each run, the algorithm creates a folder (*run_folder* in the following step) inside the *time_folder* with the name as the number of the execution.
+2. For each run, the algorithm creates a folder (*run_folder* in the following step) inside the *time_folder* with the name equal to the number of the execution.
 3. Inside each *run_folder*, and depending on the selected algorithm, we can found different files such as the plotted time series, information of segments, fitness, etc. for the execution.
 4. When all executions are finished, masterSaveAll.m is executed and it creates two files in *time_folder*, which are:
 - Summary information saved in resultsMultipleRunnings.csv file.
