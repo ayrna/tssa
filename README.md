@@ -113,6 +113,7 @@ For each algorithm, we have three files:
 
 ## Usage
 1. Click on the selected algorithm.
+* For the first time, you must create a folder called "reports"
 2. Open masterExperimenter.m file.
 3. Configure masterExperimenter.m by setting the experimental parameters. (Note that you should change the files array with your time series).
 4. Run masterExperimenter.m file.
