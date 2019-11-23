@@ -1,4 +1,4 @@
-# README
+![AYRNA TSSA logo](logo.png)
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:1 -->
 
 - [AYRNA TSSA](#ayrna-tssa)
